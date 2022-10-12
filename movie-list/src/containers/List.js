@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Card } from "../components/Cards";
 
 export const List = () => {
-  return (
-    <h1>MovieListComponent</h1>
-  )
-}
+  return <Card />;
+};
