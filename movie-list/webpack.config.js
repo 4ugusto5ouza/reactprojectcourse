@@ -1,18 +1,21 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+import HtmlWebPackPlugin from "html-webpack-plugin";
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
   filename: "./index.html",
 });
 
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: { loader: "babel-loader" },
-      },
-    ],
-  },
-  plugins: [htmlPlugin],
+// eslint-disable-next-line no-undef
+export const module = {
+  rules: [
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: ["babel-loader", "eslint-loader"],
+    },
+    {
+      test: /\.css$/,
+      use: ["style-loader", "css-loader"],
+    },
+  ],
 };
+export const plugins = [htmlPlugin];
